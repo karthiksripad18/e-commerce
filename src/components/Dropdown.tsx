@@ -12,22 +12,22 @@ const Dropdown : React.FC<Props>= ({isOpen, toggle}) => {
     return (
         <div onClick={() => toggle()} className={isOpen? "grid grid-rows-4 w-100 text-center text-2xl": 'hidden'}>
                 <ul>
-                    <li className="p-1">
+                    <li className="p-1 hover-effect">
                         <Link to="/">
                             Home
                         </Link>
                     </li>
-                    <li className="p-1">
+                    <li className="p-1 hover-effect">
                         <Link to="/">
                             Products
                         </Link>
                     </li>
-                    <li className="p-1">
+                    <li className="p-1 hover-effect">
                         <Link to="/">
                             <FontAwesomeIcon icon={faShoppingCart} color="white" />
                         </Link>
                     </li>
-                    <li className="p-1">
+                    <li className="p-1 hover-effect">
                         <Link to="/">
                             <FontAwesomeIcon icon={faUser} color="white" />
                         </Link>

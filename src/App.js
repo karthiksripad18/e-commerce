@@ -1,6 +1,7 @@
 import React, {useState, useEffect} from 'react';
 import Navbar from './components/Navbar';
 import Dropdown from './components/Dropdown';
+import Routes from './Routes';
 
 function App() {
   const [isOpen, setIsOpen] = useState(false);
@@ -22,8 +23,8 @@ function App() {
     <div className="font-rochester text-white min-w-screen">
       <Navbar toggle={toggle} />
       <Dropdown toggle={toggle} isOpen={isOpen} />
-      <main>
-        Content Goes here
+      <main className="min-w-screen h-90v">
+        <Routes />
       </main>
     </div>
   );

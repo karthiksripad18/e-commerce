@@ -4,6 +4,10 @@
 @tailwind components;
 @tailwind utilities;
 
+.hover-effect {
+  @apply transition duration-300 transform hover:-translate-y-1 hover:scale-110;
+}
+
 body {
   background-color: #2f303a;
 }

@@ -5,6 +5,13 @@ module.exports = {
     extend: {
       fontFamily: {
         "rochester": ["Rochester"]
+      },
+      colors: {
+        primary: "#2F303A",
+        primaryButton: "#1762A7"
+      },
+      height: {
+        "90v": "90vh"
       }
     },
   },
