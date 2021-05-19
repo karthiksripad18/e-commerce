@@ -1,9 +1,10 @@
 import React from 'react';
-import {Link} from 'react-router-dom';
+import {Link, useLocation} from 'react-router-dom';
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 import {faShoppingCart, faUser, faBars} from '@fortawesome/free-solid-svg-icons';
 
-const Navbar = ({toggle} : {toggle: Function}) => {
+const Navbar: React.FC<{toggle: Function}> = ({toggle}) => {
+    const {pathname} = useLocation();
     return (
         <nav className="border-b border-white p-3 flex justify-between items-center min-w-full">
             <div className="ml-5 hover-effect">
@@ -14,24 +15,24 @@ const Navbar = ({toggle} : {toggle: Function}) => {
             </div>
             <div className="w-1/4 text-2xl md:block hidden">
                 <ul className="flex justify-evenly">
-                    <li className="px-1 hover-effect">
+                    <li className={pathname === '/' ? "bg-white text-primary px-2 hover-effect shadowed-2xl border-2 rounded-full": "px-1 hover-effect"}>
                         <Link to="/">
                             Home
                         </Link>
                     </li>
-                    <li className="px-1 hover-effect">
-                        <Link to="/">
+                    <li className={pathname === '/products' ? "bg-white text-primary px-2 hover-effect border-2 rounded-full": "px-1 hover-effect"}>
+                        <Link to="/products">
                             Products
                         </Link>
                     </li>
-                    <li className="px-1 hover-effect">
-                        <Link to="/">
-                            <FontAwesomeIcon icon={faShoppingCart} color="white" />
+                    <li className={pathname === '/cart' ? "bg-white px-2 hover-effect border-2 rounded-full": "px-1 hover-effect"}>
+                        <Link to="/cart">
+                            <FontAwesomeIcon icon={faShoppingCart} color={pathname === '/cart'? "#2f303a" :"white"} />
                         </Link>
                     </li>
-                    <li className="px-1 hover-effect">
-                        <Link to="/">
-                            <FontAwesomeIcon icon={faUser} color="white" />
+                    <li className={pathname === '/user' ? "bg-white px-2 hover-effect bg-white text-black border-2 rounded-full": "px-1 hover-effect"}>
+                        <Link to="/user">
+                            <FontAwesomeIcon icon={faUser} color={pathname === '/user'? "#2f303a" :"white"} />
                         </Link>
                     </li>
                 </ul>

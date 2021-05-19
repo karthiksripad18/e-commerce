@@ -7,13 +7,20 @@ import {FAKEAPIURL} from '../common/constants';
 import axios from 'axios';
 import { useDispatch } from 'react-redux';
 import {setActiveUser} from '../redux/userSlice';
+import {setLoading} from '../redux/loadingSlice';
 import {Redirect, useLocation} from 'react-router-dom';
 
-const LoginForm = () => {
+interface userState {
+    username: string | null;
+    password: string | null;
+}
+
+const LoginForm: React.FC = () => {
+    const [errMsg, setErrMsg] = useState('');
     const {state: {from: fromLocation} } : any = useLocation();
-    const [redirectToreferrer, setRedirectToreferrer] = useState<boolean>(false);
+    const [redirectToreferrer, setRedirectToreferrer] = useState(false);
     const dispatch = useDispatch();
-    const initialValues = {
+    const initialValues: userState = {
         username: '',
         password: '',
     };
@@ -24,16 +31,27 @@ const LoginForm = () => {
         }
     );
     const onSubmit = (values: any, props: any) => {
+        dispatch(setLoading({isLoading: true, loadingMessage: "Logging In"}));
         axios.post(`${FAKEAPIURL}auth/login`, {
             username: values.username,
             password: values.password
         }).then(
-            ({data : {token}}) => {
-                dispatch(setActiveUser({
-                    username: values.username,
-                    token: token
-                }))
-                setRedirectToreferrer(true);
+            ({data}: {data: any}) => {
+                if (data.token !== undefined) {
+                    dispatch(setActiveUser({
+                        username: values.username,
+                        token: data.token
+                    }))
+                    sessionStorage.setItem('username', values.username);
+                    sessionStorage.setItem('token', data.token);
+                    setRedirectToreferrer(true);
+                } else {
+                    let errMsg = data.msg;
+                    setErrMsg(errMsg);
+
+                }
+                dispatch(setLoading({isLoading: false, loadingMessage: null}));
+                
             }
         )
         .catch(
@@ -45,8 +63,9 @@ const LoginForm = () => {
 
     return (
         <div className="w-3/4 h-1/2 flex flex-col font-serif bg-white rounded shadowed-2xl md:w-1/4">
-            <div className="w-full h-1/4 flex justify-center items-center">
+            <div className="w-full h-1/4 flex flex-col justify-center items-center">
                 <p className="text-4xl text-primary text-black font-rochester text-bold">Login here</p>
+                {errMsg? <p className="text-red-500 pt-2">{errMsg}</p>: null}
             </div>
             <Formik initialValues={initialValues} onSubmit={onSubmit} validationSchema={validationSchema}>
                 {
@@ -54,13 +73,13 @@ const LoginForm = () => {
                         <Form className="w-full h-3/4 flex flex-col justify-center items-center">
                             <div className="w-full my-2 flex justify-center items-center">
                                 <label htmlFor='username'><FontAwesomeIcon icon={faUser} color={"black"} /></label>
-                                <Field type="text" className="ml-2 w-3/4 h-10 rounded bg-primary text-white text-center" name="username" placeholder='Enter username' required />   
+                                <Field type="text" autoComplete="off" className="ml-2 w-3/4 h-10 rounded bg-primary text-white text-center" name="username" placeholder='Enter username' required />   
                             </div>
                             <div className="w-full my-2 flex justify-center items-center">
                                 <label htmlFor='password'><FontAwesomeIcon icon={faUnlock} color={"black"} /></label>
                                 <Field type="password" className="ml-2 w-3/4 h-10 rounded bg-primary text-white text-center" name="password" placeholder='Enter password' required />
                             </div>
-                            <button className="bg-primaryButton mt-2 rounded w-1/4 h-10">Login</button>
+                            <button className="hover-effect bg-primaryButton mt-2 rounded w-1/4 h-10">Login</button>
                         </Form>
                     )
                 }

@@ -3,7 +3,7 @@ import {userState} from '../common/modals';
 
 const initialState: userState = {
     userName: null,
-    token: null
+    token: null,
 }
 
 const userSlice = createSlice({

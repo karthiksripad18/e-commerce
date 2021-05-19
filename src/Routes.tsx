@@ -1,13 +1,13 @@
 import React, {FunctionComponent} from 'react';
-import { Route, Switch, Redirect, useLocation } from "react-router-dom";
-import { useSelector } from 'react-redux';
-import {selectToken} from './redux/userSlice';
+import { Route, Switch, Redirect, useLocation } from "react-router-dom";    
 import Login from './pages/Login';
 import Home from './pages/Home';
+import Products from './pages/Products';
+import Cart from './pages/Cart';
 
 const PrivateRoute = ({component: Component, path}: {component: FunctionComponent, path: string}) => {
     const location = useLocation();
-    const token = useSelector(selectToken);
+    const token = sessionStorage.getItem('token');
     return (
         <Route exact path={path}>
             {
@@ -24,6 +24,9 @@ const Routes = () => {
     return (
         <Switch>
             <Route path="/login"><Login /></Route>
+            <PrivateRoute path="/products" component={Products} />
+            <PrivateRoute path="/cart" component={Cart} />
+            <PrivateRoute path="/user" component={Products} />
             <PrivateRoute path="/" component={Home} />
         </Switch>
     );
