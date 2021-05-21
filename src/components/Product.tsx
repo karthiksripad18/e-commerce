@@ -13,7 +13,7 @@ const Product = ({ id, title, price, category, description, image }: { id: numbe
             <div className="ml-5 mr-2 flex flex-col justify-center items-center">
                 <p className="mb-2 font-bold">Category: {category}</p>
                 <p>{description}</p>
-                <button onClick={() => dispatch(addToCart({productId: id, price: price }))} className="bg-primaryButton w-20 rounded text-white font-bold mt-2 mb-1">Add To Cart</button>
+                <button onClick={() => dispatch(addToCart({productId: id, price: price, imageUrl: image }))} className="hover-effect bg-primaryButton w-20 rounded text-white font-bold mt-2 mb-1">Add To Cart</button>
             </div>
         </div>
     )
