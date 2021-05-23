@@ -7,7 +7,7 @@ const Navbar: React.FC<{toggle: Function}> = ({toggle}) => {
     const {pathname} = useLocation();
     return (
         <nav className="border-b border-white p-3 flex justify-between items-center min-w-full">
-            <div className="ml-5 hover-effect">
+            <div className="ml-5 test-effect hover-effect">
                 <Link to="/" className="text-4xl text-bold">Mirror</Link>
             </div>
             <div onClick={() => toggle()} className="cursor-pointer md:hidden">

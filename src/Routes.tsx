@@ -4,6 +4,7 @@ import Login from './pages/Login';
 import Home from './pages/Home';
 import Products from './pages/Products';
 import Cart from './pages/Cart';
+import UserProfile from './pages/UserProfile';
 
 const PrivateRoute = ({component: Component, path}: {component: FunctionComponent, path: string}) => {
     const location = useLocation();
@@ -26,7 +27,7 @@ const Routes = () => {
             <Route path="/login"><Login /></Route>
             <PrivateRoute path="/products" component={Products} />
             <PrivateRoute path="/cart" component={Cart} />
-            <PrivateRoute path="/user" component={Products} />
+            <PrivateRoute path="/user" component={UserProfile} />
             <PrivateRoute path="/" component={Home} />
         </Switch>
     );

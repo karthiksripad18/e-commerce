@@ -3,6 +3,7 @@ import {userState} from '../common/modals';
 
 const initialState: userState = {
     userName: null,
+    password: null,
     token: null,
 }
 
@@ -12,10 +13,12 @@ const userSlice = createSlice({
     reducers: {
         setActiveUser: (state, action) => {
             state.userName = action.payload.userName;
+            state.password = action.payload.password;
             state.token = action.payload.token;
         },
         setUserLogoutState: (state) => {
             state.userName = null;
+            state.password = null;
             state.token = null;
         }
     }

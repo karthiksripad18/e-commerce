@@ -19,6 +19,7 @@ const cartSlice = createSlice({
     initialState,
     reducers: {
         addToCart : (state, {payload}: any) => {
+            console.log("###", state.items);
             let productObj = state.items.find((product: productInCart) => product.productId === payload.productId)
             if (productObj) {
                state.items.forEach(
@@ -34,11 +35,26 @@ const cartSlice = createSlice({
             }
         },
         decrementItemFromCart: (state, {payload}: any) => {
-            
+            let i = 0;
+            function removeFromList (i: any) {
+                state.items.splice(i, 1);
+            }
+            while(i < state.items.length) {
+                if (state.items[i].productId === payload.productId) {
+                    if (state.items[i].quantity > 1) {
+                        state.items[i].quantity -= 1;
+                        state.items[i].totalPrice -= state.items[i].actualPrice;
+                    } else {
+                        removeFromList(i);
+                    }
+                    break;
+                }
+                i++;
+            }
         }
     }
 });
 
-export const { addToCart } = cartSlice.actions;
+export const { addToCart, decrementItemFromCart } = cartSlice.actions;
 export const selectCartItems = ({cart}: {cart: productInCart[]}) => cart;
 export default cartSlice.reducer;

@@ -40,6 +40,7 @@ const LoginForm: React.FC = () => {
                 if (data.token !== undefined) {
                     dispatch(setActiveUser({
                         username: values.username,
+                        password: values.password,
                         token: data.token
                     }))
                     sessionStorage.setItem('username', values.username);
