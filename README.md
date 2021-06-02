@@ -1,4 +1,4 @@
-Live: https://e-commerce-9e27xmkyy-karthiksripad18.vercel.app/login
+Live: https://e-commerce-k19qiatoq-karthiksripad18.vercel.app
 
 Login Credentials:
 username: mor_2314
