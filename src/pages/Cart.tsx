@@ -16,8 +16,8 @@ const Cart = () => {
                     <Link to={'/products'}><button className="animate-bounce bg-primaryButton w-full p-2 rounded font-sans">Add Items</button></Link>
                 </div>
                 :
-                <div className="flex min-w-screen h-full items-center mt-2">
-                    <div className="flex flex-col items-center h-5/6 w-1/2 mx-2 overflow-scroll scrollbar-hide">
+                <div className="flex flex-col lg:flex-row min-w-screen h-full items-center mt-2">
+                    <div className="flex flex-col items-center h-5/6 w-full lg:w-1/2 mx-2 overflow-scroll scrollbar-hide">
                         {
                             cart.items.map(
                                 (item: any, i: any) => {
@@ -27,7 +27,7 @@ const Cart = () => {
                         }
                     </div>
                     <div className="w-1/2 flex justify-center items-center">
-                        Payment Form
+                        <p className="text-5xl">Payment Form</p>
                     </div>
                 </div>
             }

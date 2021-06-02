@@ -2,6 +2,8 @@ import React, {useState} from 'react';
 import {useDispatch} from 'react-redux';
 import {addToCart} from '../redux/cartSlice';
 import Modal from 'react-modal';
+import {faTimes} from '@fortawesome/free-solid-svg-icons';
+import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 
 const Product = ({ id, title, price, category, description, image }: { id: number, title: string, price: string, category: string, description: string, image: string}) => {
     const [modalIsOpen, setModalIsOpen] = useState(false);
@@ -17,9 +19,9 @@ const Product = ({ id, title, price, category, description, image }: { id: numbe
                 <button onClick={() => dispatch(addToCart({productId: id, price: price, imageUrl: image }))} className="hover-effect bg-primaryButton w-20 rounded text-white font-bold">Add To Cart</button>
             </div>
             <Modal isOpen={modalIsOpen}>
-                <div className="flex flex-col">
-                    <div className="w-full h-1/4 flex flex-row-reverse">
-                        <button className="font-bold text-white bg-primary rounded p-2" onClick={() =>setModalIsOpen(false)}>X</button>
+                <div className="flex flex-col relative">
+                    <div onClick={() =>setModalIsOpen(false)} className="absolute top-1 right-3 cursor-pointer">
+                        <FontAwesomeIcon icon={faTimes} color={"red"} />
                     </div>
                     <div className="w-full h-3/4 flex justify-evenly items-center">
                         <div>

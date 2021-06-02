@@ -8,7 +8,7 @@ const Item = ({productId, imageUrl, itemQuantity, price}: {productId: number, im
     const dispatch = useDispatch();
 
     return (
-        <div className="relative text-primary font-sans mx-2 container rounded shadowed-2xl bg-white min-w-3/4 min-h-500px m-3 flex justify-evenly">
+        <div className="relative text-primary font-sans mx-2 container rounded shadowed-2xl bg-white min-w-3/4 h-1/2 m-3 flex justify-evenly">
             <div className="absolute top-1 right-3 cursor-pointer"><FontAwesomeIcon icon={faTimes} color={"red"} /></div>
             <div className="my-2">
                 <img src={imageUrl} alt="" width="150" height="150" />
