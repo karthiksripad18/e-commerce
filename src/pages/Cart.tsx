@@ -13,11 +13,11 @@ const Cart = () => {
                 cart.items.length === 0? 
                 <div className="min-h-full flex flex-col justify-center items-center">
                     <h1 className="text-5xl mb-5">Your cart is empty</h1>
-                    <Link to={'/products'}><button className="animate-bounce bg-primaryButton w-full p-2 rounded font-sans">Add Items</button></Link>
+                    <Link to={'/products'}><button className="animate-bounce bg-primaryButton w-full p-2 rounded font-sans">Shop Now</button></Link>
                 </div>
                 :
                 <div className="flex flex-col lg:flex-row min-w-screen h-full items-center mt-2">
-                    <div className="flex flex-col items-center h-5/6 w-full lg:w-2/3 mx-5 overflow-scroll scrollbar-hide">
+                    <div className="relative flex flex-col items-center h-full w-full lg:w-2/3 mx-5 overflow-scroll scrollbar-hide">
                         {
                             cart.items.map(
                                 (item: any, i: any) => {

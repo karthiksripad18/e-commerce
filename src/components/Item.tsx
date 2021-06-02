@@ -11,7 +11,7 @@ const Item = ({productId, imageUrl, itemQuantity, price}: {productId: number, im
         <div className="relative text-primary font-sans mx-2 container rounded shadowed-2xl bg-white min-w-3/4 h-1/2 m-3 flex justify-evenly items-center">
             <div onClick={() => dispatch(deleteItemFromCart({productId: productId}))} className="absolute top-1 right-3 cursor-pointer"><FontAwesomeIcon icon={faTimes} color={"red"} /></div>
             <div className="my-2">
-                <img src={imageUrl} alt="" width="150" height="150" />
+                <img className="h-48 w-36" src={imageUrl} alt={productId.toString()} />
             </div>
             <div className="flex font-bold justify-evenly items-center">
                 <p className="text-sm md:text-2xl">Quantity:</p>
