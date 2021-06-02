@@ -17,7 +17,8 @@ interface userState {
 
 const LoginForm: React.FC = () => {
     const [errMsg, setErrMsg] = useState('');
-    const {state: {from: fromLocation} } : any = useLocation();
+    const { state } : any = useLocation();
+    const fromLocation = state? state.from: "/";
     const [redirectToreferrer, setRedirectToreferrer] = useState(false);
     const dispatch = useDispatch();
     const initialValues: userState = {
@@ -66,7 +67,7 @@ const LoginForm: React.FC = () => {
         <div className="w-3/4 h-1/2 flex flex-col font-serif bg-white rounded shadowed-2xl md:w-1/4">
             <div className="w-full h-1/4 flex flex-col justify-center items-center">
                 <p className="text-4xl text-primary text-black font-rochester text-bold">Login here</p>
-                {errMsg? <p className="text-red-500 pt-2">{errMsg}</p>: null}
+                <p className={errMsg? "text-red-500 pt-2 opacity-100": "opacity-0"}>{errMsg}</p>
             </div>
             <Formik initialValues={initialValues} onSubmit={onSubmit} validationSchema={validationSchema}>
                 {
