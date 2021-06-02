@@ -6,18 +6,17 @@ import Product from '../components/Product';
 const Products: React.FC = () => {
     const [selectedCategory, SetSelectedCategory] = useState(ALL);
     const [products, SetProducts] = useState([]);
-    const getProducts = () => {
-        const url = selectedCategory? `${FAKEAPIURL}products/category/${selectedCategory}`: `${FAKEAPIURL}products`;
-        axios.get(url)
-        .then(
-            ({data}) => {
-                console.log(data);
-                SetProducts(data);
-            }
-        )
-    };
 
     useEffect(() => {
+        const getProducts = () => {
+            const url = selectedCategory? `${FAKEAPIURL}products/category/${selectedCategory}`: `${FAKEAPIURL}products`;
+            axios.get(url)
+            .then(
+                ({data}) => {
+                    SetProducts(data);
+                }
+            )
+        };
         getProducts();
     }, [selectedCategory]);
 
@@ -30,7 +29,7 @@ const Products: React.FC = () => {
                 <div onClick={() => SetSelectedCategory(JEWELLERY)} className={selectedCategory === JEWELLERY? "underline category": "category"}>Jewellery</div>
                 <div onClick={() => SetSelectedCategory(ELECTRONICS)} className={selectedCategory === ELECTRONICS? "underline category": "category"}>Electronics</div>
             </div>
-            <div className="h-full grid grid-cols-1 md:grid-cols-3 gap-4 mx-5">
+            <div className="h-full grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 mx-5">
                 {products.length > 0?
                     products.map((product,i) => <Product {...product} key={i} />)
                     : null

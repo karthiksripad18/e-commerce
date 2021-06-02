@@ -10,10 +10,10 @@ const Navbar: React.FC<{toggle: Function}> = ({toggle}) => {
             <div className="ml-5 test-effect hover-effect">
                 <Link to="/" className="text-4xl text-bold">Mirror</Link>
             </div>
-            <div onClick={() => toggle()} className="cursor-pointer md:hidden">
+            <div onClick={() => toggle()} className="cursor-pointer lg:hidden">
                 <FontAwesomeIcon icon={faBars} color="white" />
             </div>
-            <div className="w-1/4 text-2xl md:block hidden">
+            <div className="w-1/4 text-2xl lg:block hidden">
                 <ul className="flex justify-evenly">
                     <li className={pathname === '/' ? "bg-white text-primary px-2 hover-effect shadowed-2xl border-2 rounded-full": "px-1 hover-effect"}>
                         <Link to="/">

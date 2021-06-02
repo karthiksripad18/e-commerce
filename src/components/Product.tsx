@@ -7,7 +7,7 @@ const Product = ({ id, title, price, category, description, image }: { id: numbe
     const [modalIsOpen, setModalIsOpen] = useState(false);
     const dispatch = useDispatch();
     return (
-        <div className="text-primary font-sans container shadowed-2xl rounded bg-white min-h-100px flex  items-center justify-evenly">
+        <div className="text-primary font-sans container shadowed-2xl rounded bg-white h-auto flex  items-center justify-evenly">
             <div className="ml-2">
                 <img className="cursor-pointer" onClick={() => setModalIsOpen(true)} width="193" height="130" src={image} alt={title}/>
             </div>

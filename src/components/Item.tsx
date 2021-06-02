@@ -1,12 +1,15 @@
 import React from 'react';
 import {useDispatch} from 'react-redux';
 import {addToCart, decrementItemFromCart} from '../redux/cartSlice';
+import {faTimes} from '@fortawesome/free-solid-svg-icons';
+import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 
 const Item = ({productId, imageUrl, itemQuantity, price}: {productId: number, imageUrl: string; itemQuantity: any, price: any}) => {
     const dispatch = useDispatch();
 
     return (
-        <div className="text-primary font-sans mx-2 container rounded shadowed-2xl bg-white min-w-fill min-h-300px m-3 flex justify-evenly">
+        <div className="relative text-primary font-sans mx-2 container rounded shadowed-2xl bg-white min-w-3/4 min-h-500px m-3 flex justify-evenly">
+            <div className="absolute top-1 right-3 cursor-pointer"><FontAwesomeIcon icon={faTimes} color={"red"} /></div>
             <div className="my-2">
                 <img src={imageUrl} alt="" width="150" height="150" />
             </div>
