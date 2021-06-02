@@ -15,8 +15,12 @@ const userSlice = createSlice({
             state.userName = action.payload.userName;
             state.password = action.payload.password;
             state.token = action.payload.token;
+            sessionStorage.setItem('username', action.payload.userName);
+            sessionStorage.setItem('token', action.payload.token);
         },
         setUserLogoutState: (state) => {
+            sessionStorage.removeItem('username');
+            sessionStorage.removeItem('token');
             state.userName = null;
             state.password = null;
             state.token = null;

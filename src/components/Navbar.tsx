@@ -8,7 +8,9 @@ const Navbar: React.FC<{toggle: Function}> = ({toggle}) => {
     return (
         <nav className="border-b border-white p-3 flex justify-between items-center min-w-full">
             <div className="ml-5 test-effect hover-effect">
-                <Link to="/" className="text-4xl text-bold">Mirror</Link>
+                <Link to="/" className="text-4xl text-bold">
+                    <span className="bg-white text-primary p-1/2 rounded-full">M</span>irror
+                </Link>
             </div>
             <div onClick={() => toggle()} className="cursor-pointer lg:hidden">
                 <FontAwesomeIcon icon={faBars} color="white" />

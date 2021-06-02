@@ -21,8 +21,8 @@ const LoginForm: React.FC = () => {
     const [redirectToreferrer, setRedirectToreferrer] = useState(false);
     const dispatch = useDispatch();
     const initialValues: userState = {
-        username: '',
-        password: '',
+        username: 'mor_2314',
+        password: '83r5^_',
     };
     const validationSchema = Yup.object().shape(
         {

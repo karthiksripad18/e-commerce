@@ -17,7 +17,7 @@ const Cart = () => {
                 </div>
                 :
                 <div className="flex flex-col lg:flex-row min-w-screen h-full items-center mt-2">
-                    <div className="flex flex-col items-center h-5/6 w-full lg:w-1/2 mx-2 overflow-scroll scrollbar-hide">
+                    <div className="flex flex-col items-center h-5/6 w-full lg:w-2/3 mx-5 overflow-scroll scrollbar-hide">
                         {
                             cart.items.map(
                                 (item: any, i: any) => {
@@ -26,8 +26,9 @@ const Cart = () => {
                             )
                         }
                     </div>
-                    <div className="w-1/2 flex justify-center items-center">
-                        <p className="text-5xl">Payment Form</p>
+                    <div className="w-1/4 flex flex-col justify-center items-center">
+                        <p className="text-4xl">Grand Total</p>
+                        <p className="text-5xl">${cart.grandTotal.toFixed(2)}</p>
                     </div>
                 </div>
             }
