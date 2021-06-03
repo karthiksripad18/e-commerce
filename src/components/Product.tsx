@@ -14,7 +14,7 @@ const Product = ({ id, title, price, category, description, image }: { id: numbe
                 <img className="cursor-pointer h-46 w-36" onClick={() => setModalIsOpen(true)} src={image} alt={title}/>
             </div>
             <div className="ml-5 mr-2 h-full flex flex-col justify-evenly items-center">
-                <p className="font-bold">Category: {category}</p>
+                <p className="md:font-bold">Category: {category}</p>
                 <p className="font-bold text-2xl md:text-5xl my-2">${price}</p>
                 <button onClick={() => dispatch(addToCart({productId: id, price: price, imageUrl: image }))} className="hover-effect bg-primaryButton p-2 rounded text-white text-sm mb-2">Add To Cart</button>
             </div>
