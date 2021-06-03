@@ -5,6 +5,7 @@ import Home from './pages/Home';
 import Products from './pages/Products';
 import Cart from './pages/Cart';
 import UserProfile from './pages/UserProfile';
+import FinalOrder from './pages/FinalOrder';
 
 const PrivateRoute = ({component: Component, path}: {component: FunctionComponent, path: string}) => {
     const location = useLocation();
@@ -25,6 +26,7 @@ const Routes = () => {
     return (
         <Switch>
             <Route path="/login"><Login /></Route>
+            <PrivateRoute path="/orders" component={FinalOrder} />
             <PrivateRoute path="/products" component={Products} />
             <PrivateRoute path="/cart" component={Cart} />
             <PrivateRoute path="/user" component={UserProfile} />

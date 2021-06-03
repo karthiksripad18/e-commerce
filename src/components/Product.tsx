@@ -18,13 +18,13 @@ const Product = ({ id, title, price, category, description, image }: { id: numbe
                 <p className="font-bold text-5xl mt-2">${price}</p>
                 <button onClick={() => dispatch(addToCart({productId: id, price: price, imageUrl: image }))} className="hover-effect bg-primaryButton w-20 rounded text-white font-bold">Add To Cart</button>
             </div>
-            <Modal isOpen={modalIsOpen}>
-                <div className="w-full h-full flex flex-col relative">
+            <Modal style={{content: {backgroundColor: "#2f303a"}}} isOpen={modalIsOpen}>
+                <div className="w-full h-full flex flex-col relative text-white">
                     <div onClick={() =>setModalIsOpen(false)} className="absolute top-1 right-3 cursor-pointer">
                         <FontAwesomeIcon icon={faTimes} color={"red"} />
                     </div>
                     <div className="w-full h-full flex justify-evenly items-center">
-                        <img className="h-76 w-64" src={image} alt="" />
+                        <img className="h-76 w-64 rounded" src={image} alt="" />
                         <p className="w-1/2">{description}</p>
                     </div>
                 </div>

@@ -70,10 +70,14 @@ const cartSlice = createSlice({
                 }
                 i++;
             }
-        }
+        },
+        clearCart: (state) => {
+            state.items = [];
+            state.grandTotal = 0;
+        } 
     }
 });
 
-export const { addToCart, decrementItemFromCart, deleteItemFromCart } = cartSlice.actions;
+export const { addToCart, decrementItemFromCart, deleteItemFromCart, clearCart } = cartSlice.actions;
 export const selectCartItems = ({cart}: {cart: productInCart[]}) => cart;
 export default cartSlice.reducer;

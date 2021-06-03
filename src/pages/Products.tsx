@@ -27,7 +27,7 @@ const Products: React.FC = () => {
 
     return (
         <div className="w-full h-full flex flex-col">
-            <div className="w-full flex flex-col items-center sm:flex-row mb-5">
+            <div className="w-full mb-5 flex flex-col items-center sm:flex-row">
                 <div onClick={() => SetSelectedCategory(ALL)} className={selectedCategory === ALL? "underline category": "category"}>All</div>
                 <div onClick={() => SetSelectedCategory(MENS)} className={selectedCategory === MENS? "underline category": "category"}>Men's</div>
                 <div onClick={() => SetSelectedCategory(WOMENS)} className={selectedCategory === WOMENS? "underline category": "category"}>Women's</div>
