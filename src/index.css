@@ -9,7 +9,7 @@
 }
 
 .category {
-  @apply hover-effect cursor-pointer container text-center font-bold bg-white text-primary w-1/4 py-2 mx-5 my-2 rounded;
+  @apply hover-effect cursor-pointer container text-center font-bold bg-white text-primary w-1/4 py-2 mx-5 my-2 rounded-full;
 }
 
 body {
