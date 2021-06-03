@@ -5,13 +5,12 @@ import {clearCart} from '../redux/cartSlice';
 const FinalOrder = () => {
     const dispatch = useDispatch();
     useEffect(() => {
-        console.log("her")
         dispatch(clearCart());
     });
     return (
-        <div className="w-screen h-full flex flex-col font-sans text-4xl justify-center items-center">
+        <div className="w-screen h-full flex flex-col font-sans text-xl md:text-4xl justify-center items-center">
             <p>Congrats on your Purchase!!!</p>
-            <p>As you know already, your orders will never be delivered to you.</p>
+            <p className="mt-5 text-center">As you know already, your orders will never be delivered to you.</p>
         </div>
     )
 }

@@ -27,10 +27,12 @@ const Cart = () => {
                             )
                         }
                     </div>
-                    <div className="w-full flex justify-center items-center md:flex-col md:w-1/4">
-                        <p className="text-4xl m-2">Grand Total</p>
-                        <p className="text-5xl">${cart.grandTotal.toFixed(2)}</p>
-                        <Link to={'/orders'}><button className="bg-primaryButton p-3 font-sans rounded m-1">Buy Now <FontAwesomeIcon icon={faArrowRight} color="white" /></button></Link>
+                    <div className="w-full flex flex-col justify-center items-center md:w-1/4">
+                        <div className="flex md:flex-col">
+                            <p className="text-4xl m-2">Grand Total</p>
+                            <p className="text-5xl">${cart.grandTotal.toFixed(2)}</p>
+                        </div>
+                        <Link to={'/orders'}><button className="bg-primaryButton p-3 font-sans rounded m-2">Buy Now <FontAwesomeIcon icon={faArrowRight} color="white" /></button></Link>
                     </div>
                 </div>
             }

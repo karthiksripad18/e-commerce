@@ -13,15 +13,17 @@ const Item = ({productId, imageUrl, itemQuantity, price}: {productId: number, im
             <div className="w-1/3 flex justify-center items-center py-2">
                 <img className="h-48 w-36" src={imageUrl} alt={productId.toString()} />
             </div>
-            <div className="w-1/3 flex font-bold justify-evenly items-center">
+            <div className="w-1/3 flex flex-col font-bold justify-evenly items-center">
                 <p className="text-sm md:text-2xl">Quantity:</p>
-                <button onClick={() => dispatch(decrementItemFromCart({productId: productId, price: price, quantity: 1}))} className="hover-effect bg-primaryButton w-10 h-10 text-white rounded m-2"> - </button>
-                <p className="mx-2">{itemQuantity}</p>
-                <button onClick={() => dispatch(addToCart({productId: productId, price: price, quantity: 1}))} className="hover-effect bg-primaryButton w-10 h-10 text-white rounded m-2"> + </button>
+                <div className="flex items-center mt-3">
+                    <button onClick={() => dispatch(decrementItemFromCart({productId: productId, price: price, quantity: 1}))} className="hover-effect bg-primaryButton w-10 h-10 text-white rounded m-2"> - </button>
+                    <p className="mx-2">{itemQuantity}</p>
+                    <button onClick={() => dispatch(addToCart({productId: productId, price: price, quantity: 1}))} className="hover-effect bg-primaryButton w-10 h-10 text-white rounded m-2"> + </button>
+                </div>
             </div>
             <div className="w-1/3 flex flex-col font-bold justify-evenly items-center">
                 <p className="text-sm md:text-2xl">Total Price:</p>
-                <p className="text-sm md:text-3xl mx-2">${price.toFixed(2)}</p>
+                <p className="text-sm md:text-3xl mx-2 mt-3">${price.toFixed(2)}</p>
             </div>
         </div>
     )
