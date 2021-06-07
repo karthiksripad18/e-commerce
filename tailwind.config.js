@@ -4,7 +4,8 @@ module.exports = {
   theme: {
     extend: {
       fontFamily: {
-        "rochester": ["Rochester"]
+        "rochester": ["Rochester"],
+        "limelight": ["Limelight"]
       },
       colors: {
         primary: "#2F303A",

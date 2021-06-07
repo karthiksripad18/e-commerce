@@ -2,14 +2,24 @@ import React from 'react';
 import {Link, useLocation} from 'react-router-dom';
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 import {faShoppingCart, faUser, faBars} from '@fortawesome/free-solid-svg-icons';
+import {motion} from 'framer-motion';
+
+const flipAnimation = {
+    rotateY: 180, 
+    transition: { 
+        yoyo: 3, 
+        duration: 2,
+        delay: 1
+    }
+};
 
 const Navbar: React.FC<{toggle: Function}> = ({toggle}) => {
     const {pathname} = useLocation();
     return (
         <nav className="border-b border-white p-3 flex justify-between items-center min-w-full">
             <div className="ml-5 test-effect hover-effect">
-                <Link to="/" className="text-4xl text-bold">
-                    <span className="bg-white text-primary p-1 rounded-full">M</span>irror
+                <Link to="/" className="text-4xl text-bold flex">
+                    <motion.p animate={flipAnimation} className="bg-white text-primary p-1 rounded-full">M</motion.p>irror
                 </Link>
             </div>
             <div onClick={() => toggle()} className="cursor-pointer lg:hidden">

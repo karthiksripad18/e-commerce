@@ -14,7 +14,7 @@ const Cart = () => {
                 cart.items.length === 0? 
                 <div className="min-h-full flex flex-col justify-center items-center">
                     <h1 className="text-5xl mb-5">Your cart is empty</h1>
-                    <Link to={'/products'}><button className="animate-bounce bg-primaryButton w-full p-2 rounded font-sans">Shop Now</button></Link>
+                    <Link to={'/products'}><button className="animate-bounce bg-primaryButton w-full p-2 rounded font-limelight">Shop Now</button></Link>
                 </div>
                 :
                 <div className="flex flex-col lg:flex-row min-w-screen h-full items-center mt-2">
@@ -32,7 +32,7 @@ const Cart = () => {
                             <p className="text-4xl m-2">Grand Total</p>
                             <p className="text-5xl">${cart.grandTotal.toFixed(2)}</p>
                         </div>
-                        <Link to={'/orders'}><button className="bg-primaryButton p-3 font-sans rounded m-2">Buy Now <FontAwesomeIcon icon={faArrowRight} color="white" /></button></Link>
+                        <Link to={'/orders'}><button className="bg-primaryButton p-3 font-limelight rounded m-2">Buy Now <FontAwesomeIcon icon={faArrowRight} color="white" /></button></Link>
                     </div>
                 </div>
             }
