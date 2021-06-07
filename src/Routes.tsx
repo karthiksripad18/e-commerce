@@ -9,7 +9,7 @@ import FinalOrder from './pages/FinalOrder';
 
 const PrivateRoute = ({component: Component, path}: {component: FunctionComponent, path: string}) => {
     const location = useLocation();
-    const token = sessionStorage.getItem('token');
+    const token = sessionStorage.getItem('userName');
     return (
         <Route exact path={path}>
             {

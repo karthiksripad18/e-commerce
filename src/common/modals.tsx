@@ -1,7 +1,6 @@
 export interface userState {
     userName: string | null;
-    password: string | null;
-    token: string | null;
+    userEmail: string | null;
 };
 
 export interface productModal {

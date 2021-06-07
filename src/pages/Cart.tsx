@@ -27,12 +27,12 @@ const Cart = () => {
                             )
                         }
                     </div>
-                    <div className="w-full flex flex-col justify-center items-center md:w-1/4">
+                    <div className="font-limelight w-full flex flex-col justify-center items-center md:w-1/4">
                         <div className="flex md:flex-col">
                             <p className="text-4xl m-2">Grand Total</p>
                             <p className="text-5xl">${cart.grandTotal.toFixed(2)}</p>
                         </div>
-                        <Link to={'/orders'}><button className="bg-primaryButton p-3 font-limelight rounded m-2">Buy Now <FontAwesomeIcon icon={faArrowRight} color="white" /></button></Link>
+                        <Link to={'/orders'}><button className="bg-primaryButton p-3 rounded m-2">Buy Now <FontAwesomeIcon icon={faArrowRight} color="white" /></button></Link>
                     </div>
                 </div>
             }
