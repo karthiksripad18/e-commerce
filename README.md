@@ -1,4 +1,4 @@
-Live: https://e-commerce-3o94ojmjf-karthiksripad18.vercel.app/
+Live: https://e-commerce-ashy-five.vercel.app/
 
 Login Credentials:
 username: mor_2314
