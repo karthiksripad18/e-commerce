@@ -12,6 +12,9 @@ module.exports = {
       },
       height: {
         "90v": "90vh"
+      },
+      backgroundImage: {
+        "login-background": "url('./images/login_background.jpg')"
       }
     },
   },
