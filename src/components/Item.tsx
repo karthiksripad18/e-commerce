@@ -12,7 +12,7 @@ const initialAnimation = {
 const finalAnimation = {
     x: 0, 
     transition: {
-        duration: 2
+        duration: 1
     }
 };
 

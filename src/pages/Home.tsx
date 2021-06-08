@@ -1,9 +1,10 @@
-import React from 'react'
+import React from 'react';
+import Offers from '../components/Offers';
 
 const Home: React.FC = () => {
     return (
-        <div className="flex">
-            Home
+        <div className="">
+            <Offers />
         </div>
     )
 }
