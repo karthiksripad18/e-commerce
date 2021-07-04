@@ -15,6 +15,7 @@
     "@tippy.js/react": "^3.1.1",
     "autoprefixer": "^9.8.6",
     "axios": "^0.21.1",
+    "env-cmd": "^10.1.0",
     "firebase": "^8.6.5",
     "formik": "^2.2.6",
     "framer-motion": "^4.1.17",
@@ -35,7 +36,7 @@
     "yup": "^0.32.9"
   },
   "scripts": {
-    "start": "craco start",
+    "start": "env-cmd -f .env.dev craco start",
     "build": "craco build",
     "test": "craco test",
     "eject": "react-scripts eject"
