@@ -5,7 +5,7 @@ import * as Yup from 'yup';
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 import {faUser, faUnlock} from '@fortawesome/free-solid-svg-icons';
 import {faFacebookSquare, faGoogle} from '@fortawesome/free-brands-svg-icons';
-import {FAKEAPIURL, AUTH_TYPE} from '../common/constants';
+import {AUTH_TYPE} from '../common/constants';
 import axios from 'axios';
 import { useDispatch } from 'react-redux';
 import {setActiveUser} from '../redux/userSlice';
@@ -52,7 +52,7 @@ const LoginForm: React.FC = () => {
 
     const onSubmit = (values: any, props: any) => {
         dispatch(setLoading({isLoading: true, loadingMessage: "Logging In"}));
-        axios.post(`${FAKEAPIURL}auth/login`, {
+        axios.post(`${process.env.REACT_APP_API_URL}auth/login`, {
             username: values.username,
             password: values.password
         }).then(
@@ -83,34 +83,34 @@ const LoginForm: React.FC = () => {
     if (redirectToreferrer) return <Redirect to={fromLocation} />
 
     return (
-        <div className="w-3/4 h-1/2 flex flex-col font-limelight bg-white rounded shadowed-2xl md:w-1/4">
-            <div className="w-full h-1/4 flex flex-col justify-center items-center">
-                <p className="text-4xl text-primary text-black text-bold">Login here</p>
+        <div className="flex flex-col w-3/4 bg-white rounded h-1/2 font-limelight shadowed-2xl md:w-1/4">
+            <div className="flex flex-col items-center justify-center w-full h-1/4">
+                <p className="text-4xl text-black text-primary text-bold">Login here</p>
                 <p className={errMsg? "text-red-500 pt-2 opacity-100": "opacity-0"}>{errMsg}</p>
             </div>
             <Formik initialValues={initialValues} onSubmit={onSubmit} validationSchema={validationSchema}>
                 {
                     formik => (
-                        <Form className="w-full h-2/3 flex flex-col justify-center items-center">
-                            <div className="w-full my-2 flex justify-center items-center">
+                        <Form className="flex flex-col items-center justify-center w-full h-2/3">
+                            <div className="flex items-center justify-center w-full my-2">
                                 <label htmlFor='username'><FontAwesomeIcon icon={faUser} color={"black"} /></label>
-                                <Field type="text" autoComplete="off" className="ml-2 w-3/4 h-10 rounded bg-primary text-white text-center" name="username" placeholder='Enter username' required />   
+                                <Field type="text" autoComplete="off" className="w-3/4 h-10 ml-2 text-center text-white rounded bg-primary" name="username" placeholder='Enter username' required />   
                             </div>
-                            <div className="w-full my-2 flex justify-center items-center">
+                            <div className="flex items-center justify-center w-full my-2">
                                 <label htmlFor='password'><FontAwesomeIcon icon={faUnlock} color={"black"} /></label>
-                                <Field type="password" className="ml-2 w-3/4 h-10 rounded bg-primary text-white text-center" name="password" placeholder='Enter password' required />
+                                <Field type="password" className="w-3/4 h-10 ml-2 text-center text-white rounded bg-primary" name="password" placeholder='Enter password' required />
                             </div>
-                            <button className="hover-effect bg-primaryButton mt-2 rounded w-1/4 h-10">Login</button>
+                            <button className="w-1/4 h-10 mt-2 rounded hover-effect bg-primaryButton">Login</button>
                         </Form>
                     )
                 }
             </Formik>
             <div className="flex justify-center">
-                <hr className="border-black w-3/4" />
+                <hr className="w-3/4 border-black" />
             </div>
-            <div className="flex justify-center items-center">
-                <button onClick={() => handleSignIn(AUTH_TYPE.google)} className="text-black m-3"><FontAwesomeIcon icon={faGoogle} size="lg" /></button>
-                <button onClick={() => handleSignIn(AUTH_TYPE.facebook)} className="text-black m-3"><FontAwesomeIcon icon={faFacebookSquare} size="lg" /></button>
+            <div className="flex items-center justify-center">
+                <button onClick={() => handleSignIn(AUTH_TYPE.google)} className="m-3 text-black"><FontAwesomeIcon icon={faGoogle} size="lg" /></button>
+                <button onClick={() => handleSignIn(AUTH_TYPE.facebook)} className="m-3 text-black"><FontAwesomeIcon icon={faFacebookSquare} size="lg" /></button>
             </div>
         </div>
     )
